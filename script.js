@@ -95,3 +95,18 @@ tabsContainer.addEventListener('click', function (e) {
 });
 
 // Menu fade navigation
+const handleHOver = function (e) {
+  if (e.target.classList.contains('nav__link')) {
+    const link = e.target;
+    const siblings = link.closest('.nav').querySelectorAll('.nav__link');
+    const logo = link.closest('.nav').querySelector('img');
+    siblings.forEach(el => {
+      if (el !== link) el.style.opacity = this;
+    });
+    logo.style.opacity = this;
+  }
+};
+
+// Passing "argument" inot handler
+nav.addEventListener('mouseover', handleHOver.bind(0.5));
+nav.addEventListener('mouseout', handleHOver.bind(1));
